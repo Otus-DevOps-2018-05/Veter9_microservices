@@ -1,5 +1,6 @@
 REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
-veter9/ubuntu0tmp-file   latest              95294ba9b225        16 seconds ago      115MB
+veter9/ubuntu-tmp-file   latest              c33275e9b90b        5 seconds ago       115MB
+veter9/ubuntu0tmp-file   latest              95294ba9b225        8 minutes ago       115MB
 hello-world              latest              4ab4c602aa5e        2 weeks ago         1.84kB
 ubuntu                   16.04               b9e15a5d1e1a        2 weeks ago         115MB
 veter9/ui                1.0                 50b567d3f0af        5 weeks ago         757MB
