@@ -57,4 +57,7 @@ Veter9 microservices repository
 - победил тем, что удалил через PIP docker-compose и переустановил через сорцы
 - добавил в гитигнор *.env файл
 - добавил example ФАЙЛ
+- сделал домашку
 
+## Выполнение ДЗ 16, gitlab-ci-1
+- 
