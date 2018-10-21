@@ -1,0 +1,60 @@
+version: '3.3'
+services:
+  post_db:
+    image: mongo:3.2
+    env_file: .env
+    volumes:
+      - post_db:/data/db
+    networks:
+      - back_net
+      - front_net
+  ui:
+    env_file: .env
+    image: ${USER_NAME}/ui:${UI_VERSION}
+    ports:
+      - ${TCP_PORT}:${TCP_PORT}/tcp
+    networks:
+      - back_net
+      - front_net
+  post:
+    image: ${USER_NAME}/post:${POST_VERSION}
+    env_file: .env
+    networks:
+      - back_net
+      - front_net
+  comment:
+    image: ${USER_NAME}/comment:${COMMENT_VERSION}
+    env_file: .env
+    networks:
+      - back_net
+      - front_net
+
+  prometheus:
+    image: ${USER_NAME}/prometheus
+    ports:
+      - '9090:9090'
+    volumes:
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention=1d'
+    networks:
+      - back_net
+      - front_net
+
+volumes:
+  post_db:
+  prometheus_data:
+
+networks:
+  back_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.2.0/24
+  front_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.1.0/24
