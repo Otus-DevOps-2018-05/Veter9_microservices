@@ -24,11 +24,6 @@ build_job:
   script:
     - echo 'Building'
 
-test_unit_job:
-  stage: test
-  script:
-    - echo 'Testing 1'
-
 test_integration_job:
   stage: test
   script:
@@ -37,9 +32,7 @@ test_integration_job:
 deploy_dev_job:
   stage: review
   script:
-    - echo 'Deploy'
+    - echo 'Deploy!'
   environment:
     name: dev
     url: http://dev.example.com
-
-
