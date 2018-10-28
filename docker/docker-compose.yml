@@ -8,6 +8,8 @@ services:
     networks:
       - back_net
       - front_net
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
   ui:
     env_file: .env
     image: ${USER_NAME}/ui:${UI_VERSION}
@@ -16,11 +18,19 @@ services:
     networks:
       - back_net
       - front_net
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.ui
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
   post:
     image: ${USER_NAME}/post:${POST_VERSION}
     environment:
       - POST_DATABASE_HOST=post_db
       - POST_DATABASE=posts
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     depends_on:
       - post_db
     ports:
@@ -39,7 +49,8 @@ services:
     networks:
       - back_net
       - front_net
-
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
   prometheus:
     image: ${USER_NAME}/prometheus
     ports:
