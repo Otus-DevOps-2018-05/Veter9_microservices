@@ -43,3 +43,18 @@ Veter9 microservices repository
 - сделал коммит, пока всё не поломал (слайд 15)
 - а потом заработало
 
+## забыл добавить описание трех ДЗ, вспоминать уже не буду...
+
+## выполнение ДЗ 20, monitoring-2
+- выполнил всё, ак по слайдам.
+- добавил три правила файрвола
+gcloud compute firewall-rules create cadvisor-default --allow tcp:8080
+gcloud compute firewall-rules create grafana-default --allow tcp:3000 
+gcloud compute firewall-rules create alertmanager-default --allow tcp:9093 
+- ссылки на докерхаб
+https://hub.docker.com/r/veter9/ui/
+https://hub.docker.com/r/veter9/comment/
+https://hub.docker.com/r/veter9/post/
+https://hub.docker.com/r/veter9/prometheus/
+https://hub.docker.com/r/veter9/alertmanager/
+
