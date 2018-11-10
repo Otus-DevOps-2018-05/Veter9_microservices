@@ -58,3 +58,22 @@ https://hub.docker.com/r/veter9/post/
 https://hub.docker.com/r/veter9/prometheus/
 https://hub.docker.com/r/veter9/alertmanager/
 
+# Выполнение ДЗ 21, logging
+- выполнил дз по слайдам
+- добавил правила файрвола
+gcloud compute firewall-rules create elasticsearchudp-default --allow udp:9200
+gcloud compute firewall-rules create f luentdtcp-default --allow tcp:24224
+gcloud compute firewall-rules create fluentdup-default --allow udp:24224
+gcloud compute firewall-rules create kibana-default --allow tcp:5601
+gcloud compute firewall-rules create kibanaudp-default --allow udp:5601
+- добавил строчку RUN apk update && apk add gcc && apk add musl-dev в докерфайл POST-PY 
+- пришлось везде ставиь теги на имаджи эластиксёрч и прочее. Имадж latest он не понимает :)
+- 
+
+# выполнение дз 22, kubernetes-1
+- поднял кубер через хардвей)
+- по ходу задания поменял регион гугл на asia-east2 (иначе не работало)
+- так же пришлось сделать apt-get update на нодах для установки nginx(этого в мануале не было)
+
+
+
