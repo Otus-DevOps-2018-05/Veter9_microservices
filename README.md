@@ -81,3 +81,5 @@ gcloud compute firewall-rules create kibanaudp-default --allow udp:5601
 - Развернул кубер в GKE
 - Запустил reddit в кубере
 
+# выполнение дз 24, kubernetes-3
+- 
